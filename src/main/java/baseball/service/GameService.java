@@ -1,18 +1,21 @@
 package baseball.service;
 
 import baseball.model.Game;
+import baseball.model.Player;
 import baseball.util.GameRule;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameService {
-    private final Game game;
-
-    public GameService() {
-        this.game = new Game();
-    }
+    private Game game;
+    private Player player;
+    private PlayerService playerService;
 
     public void setGame() {
+        game = new Game();
         game.setComputerNums(generateRandomNums());
+
+        player = new Player();
+        playerService = new PlayerService(player);
     }
 
     public int[] generateRandomNums() {
