@@ -2,8 +2,8 @@ package baseball.model;
 
 public class Game {
     private int[] computerNums;
-    private int ball;
-    private int strike;
+    private int ball = 0;
+    private int strike = 0;
 
     public int[] getComputerNums() {
         return computerNums;

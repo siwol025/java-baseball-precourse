@@ -5,6 +5,8 @@ import baseball.util.GameRule;
 import baseball.util.InputValidator;
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Scanner;
+
 public class PlayerService {
     private Player player;
     public String INPUT_MESSAGE = "숫자를 입력해주세요 : ";
@@ -13,7 +15,7 @@ public class PlayerService {
         this.player = player;
     }
 
-    public void assignNumbers() {
+    public void assignPlayerNumbers() {
         int[] playerNums = new int[GameRule.MAX_NUMBER_SIZE];
 
         System.out.print(INPUT_MESSAGE);
@@ -28,7 +30,8 @@ public class PlayerService {
     }
 
     public String inputPlayerNums() {
-        String input = Console.readLine();
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
         InputValidator.validateDigitCount(input);
 
         return input;

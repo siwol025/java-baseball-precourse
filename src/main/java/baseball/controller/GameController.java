@@ -14,9 +14,7 @@ public class GameController {
 
     public void processGame() {
         gameService.setGame();
-        while (true) {
-
-        }
+        gameService.runGame();
     }
 
 
