@@ -8,14 +8,12 @@ public class GameController {
 
     public void startGame() {
         while (true) {
-            processGame();
+            gameService.setGame();
+            gameService.runGame();
+
+            if (gameService.endGame()) {
+                break;
+            }
         }
     }
-
-    public void processGame() {
-        gameService.setGame();
-        gameService.runGame();
-    }
-
-
 }

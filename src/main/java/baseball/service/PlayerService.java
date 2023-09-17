@@ -30,9 +30,22 @@ public class PlayerService {
     }
 
     public String inputPlayerNums() {
+        String input = receivePlayerInput();
+        InputValidator.validateDigitCount(input);
+
+        return input;
+    }
+
+    public int inputRestartCommand() {
+        int input = Integer.parseInt(receivePlayerInput());
+        InputValidator.validateRestartCommand(input);
+
+        return input;
+    }
+
+    public String receivePlayerInput() {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
-        InputValidator.validateDigitCount(input);
 
         return input;
     }

@@ -36,6 +36,17 @@ public class GameService {
         }
     }
 
+    public boolean endGame() {
+        gameResultView.askForRestartOrExit();
+        int command = playerService.inputRestartCommand();
+
+        if (command == GameRule.RESTART_COMMAND) {
+            return false;
+        }
+
+        return true;
+    }
+
     public void checkGuess(int[] computerNums, int[] playerNums) {
         for (int i = 0; i < GameRule.MAX_NUMBER_SIZE; i++) {
             if (computerNums[i] == playerNums[i]) {
