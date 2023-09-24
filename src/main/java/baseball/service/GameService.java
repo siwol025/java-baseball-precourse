@@ -12,21 +12,23 @@ public class GameService {
     private PlayerService playerService;
     private GameResultView gameResultView;
 
+    public GameService() {
+        this.game = new Game();
+        this.player = new Player();
+        this.playerService = new PlayerService(player);
+        this.gameResultView = new GameResultView();
+    }
+
     public void setGame() {
-        game = new Game();
         game.setComputerNums(generateRandomNums());
-
-        player = new Player();
-        playerService = new PlayerService(player);
-
-        gameResultView = new GameResultView(game);
+        initializeScores();
     }
 
     public void runGame() {
         while (true) {
             playerService.assignPlayerNumbers();
             checkGuess(game.getComputerNums(), player.getPlayerNums());
-            gameResultView.showResult();
+            gameResultView.showResult(game);
 
             if (game.getStrike() == GameRule.MAX_NUMBER_SIZE) {
                 break;

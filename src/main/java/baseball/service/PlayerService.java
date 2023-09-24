@@ -30,24 +30,16 @@ public class PlayerService {
     }
 
     public String inputPlayerNums() {
-        String input = receivePlayerInput();
+        String input = Console.readLine();
         InputValidator.validateDigitCount(input);
 
         return input;
     }
 
     public int inputRestartCommand() {
-        int input = Integer.parseInt(receivePlayerInput());
+        int input = Integer.parseInt(Console.readLine());
         InputValidator.validateRestartCommand(input);
 
         return input;
     }
-
-    public String receivePlayerInput() {
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-
-        return input;
-    }
-
 }
