@@ -28,7 +28,7 @@ public class GameService {
         while (true) {
             playerService.assignPlayerNumbers();
             checkGuess(game.getComputerNums(), player.getPlayerNums());
-            gameResultView.showResult(game);
+            gameResultView.showResult(game.getBall(), game.getStrike());
 
             if (game.getStrike() == GameRule.MAX_NUMBER_SIZE) {
                 break;

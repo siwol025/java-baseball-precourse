@@ -12,9 +12,7 @@ public class GameResultView {
     public final static String RESTART_GAME_CHECK_MESSAGE = "게임을 새로 시작하려면 " + GameRule.RESTART_COMMAND
             + ", 종료하려면 " + GameRule.EXIT_COMMAND + "를 입력하세요.";
 
-    public void showResult(Game game) {
-        int ballCount = game.getBall();
-        int strikeCount = game.getStrike();
+    public void showResult(int ballCount, int strikeCount) {
         String resultMessage = strikeCount + STRIKE_WORD;
 
         if (ballCount != 0) {
