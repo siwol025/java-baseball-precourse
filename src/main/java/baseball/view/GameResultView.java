@@ -5,8 +5,6 @@ import baseball.model.Player;
 import baseball.util.GameRule;
 
 public class GameResultView {
-    private Game game;
-
     public final static String BALL_WORD = "볼";
     public final static String STRIKE_WORD = "스트라이크";
     public final static String NOT_MATCH_WORD = "낫싱";
@@ -14,11 +12,7 @@ public class GameResultView {
     public final static String RESTART_GAME_CHECK_MESSAGE = "게임을 새로 시작하려면 " + GameRule.RESTART_COMMAND
             + ", 종료하려면 " + GameRule.EXIT_COMMAND + "를 입력하세요.";
 
-    public GameResultView(Game game) {
-        this.game = game;
-    }
-
-    public void showResult() {
+    public void showResult(Game game) {
         int ballCount = game.getBall();
         int strikeCount = game.getStrike();
         String resultMessage = strikeCount + STRIKE_WORD;
